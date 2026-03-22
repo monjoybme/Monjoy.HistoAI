@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: monjoy-histoai
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free          # free tier: 512 MB RAM, sleeps after 15 min idle
+    region: oregon
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+    disk:
+      name: monjoy-data
+      mountPath: /app/annotations
+      sizeGB: 1
+    healthCheckPath: /api/stats
+    autoDeploy: true

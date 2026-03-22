@@ -1,0 +1,21 @@
+{
+  "name": "monjoy-ai",
+  "version": "2.0.0",
+  "description": "Monjoy.AI — WSI Annotation Platform (Node.js)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev":   "node app.js --debug"
+  },
+  "dependencies": {
+    "express":  "^4.18.2",
+    "multer":   "^1.4.5-lts.1",
+    "sharp":    "^0.33.1",
+    "koffi":    "^2.8.9",
+    "uuid":     "^9.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}

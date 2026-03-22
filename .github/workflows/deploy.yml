@@ -1,0 +1,25 @@
+name: Deploy Monjoy.HistoAI
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: node --check app.js
+
+  deploy-render:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render deploy
+        run: |
+          if [ -n "${{ secrets.RENDER_DEPLOY_HOOK }}" ]; then
+            curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
+          fi

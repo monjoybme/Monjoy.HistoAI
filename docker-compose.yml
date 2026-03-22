@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  monjoy-histoai:
+    build: .
+    container_name: monjoy-histoai
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - HOST=0.0.0.0
+      - NODE_ENV=production
+      # Optional: set a secret key for the auth gate
+      - AUTH_SECRET=${AUTH_SECRET:-}
+      # Optional: GitHub repo for fork-check
+      - GITHUB_REPO=${GITHUB_REPO:-}
+    volumes:
+      # Persist annotations, thumbnails, and the slide registry
+      - ./annotations:/app/annotations
+      - ./patches:/app/patches
+      - ./static/thumbnails:/app/static/thumbnails
+      - ./slide_registry.json:/app/slide_registry.json
+      - ./remote_slide_registry.json:/app/remote_slide_registry.json
+      - ./config.json:/app/config.json
+      # Mount your local slide directories read-only (add as many as needed)
+      # - /data/slides:/data/slides:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/stats"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
