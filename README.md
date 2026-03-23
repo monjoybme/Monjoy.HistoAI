@@ -17,3 +17,4 @@ Stream TCGA cancer slides directly in your browser. No download needed.
 1. Click the TCGA tab on the left
 2. Pick a cancer project (e.g. TCGA-BRCA)
 3. Click Stream on any slide — it opens instantly
+# port 7860
