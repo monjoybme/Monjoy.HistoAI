@@ -1623,7 +1623,7 @@ const HTML = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8
 
 
 // ── Server startup ────────────────────────────────────────────────────────────
-const PORT = parseInt(process.env.PORT || '5000', 10);
+const PORT = parseInt(process.env.PORT || '7860', 10);
 const HOST = process.env.HOST || '0.0.0.0';
 const args = process.argv.slice(2);
 const DEBUG    = args.includes('--debug');
