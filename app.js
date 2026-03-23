@@ -47,11 +47,7 @@ let sharp = null;
 try { sharp = require('sharp'); }
 catch(e) { console.warn('  sharp: ✗  npm install sharp'); }
 
-// ── Remote (URL-based streaming) registry ─────────────────────────────────────
-const REMOTE_REG_FILE = path.join(BASE_DIR, 'remote_slide_registry.json');
-function loadRemoteReg() { try { return JSON.parse(fs.readFileSync(REMOTE_REG_FILE,'utf8')); } catch { return {}; } }
-function saveRemoteReg(r) { fs.writeFileSync(REMOTE_REG_FILE, JSON.stringify(r,null,2)); }
-function remoteId(url) { return crypto.createHash('sha256').update(url).digest('hex').slice(0,12); }
+// Remote registry defined below after BASE_DIR
 
 // ── Simple BigTIFF Range-request tile fetcher ─────────────────────────────────
 // Fetches ~50 KB per visible tile instead of downloading the full file.
@@ -265,6 +261,12 @@ const CONFIG_FILE     = path.join(BASE_DIR, 'config.json');
 [ANNOTATIONS_DIR, PATCHES_DIR, THUMBNAILS_DIR, CACHE_DIR].forEach(d => {
   fs.mkdirSync(d, { recursive: true });
 });
+
+// ── Remote (URL-based streaming) registry ─────────────────────────────────────
+const REMOTE_REG_FILE = path.join(BASE_DIR, 'remote_slide_registry.json');
+function loadRemoteReg() { try { return JSON.parse(fs.readFileSync(REMOTE_REG_FILE,'utf8')); } catch { return {}; } }
+function saveRemoteReg(r) { fs.writeFileSync(REMOTE_REG_FILE, JSON.stringify(r,null,2)); }
+function remoteId(url) { return require('crypto').createHash('sha256').update(url).digest('hex').slice(0,12); }
 
 const SUPPORTED_EXT = new Set(['.svs','.ndpi','.scn','.czi','.tiff','.tif','.mrxs','.vms','.vmu','.svslide']);
 const TILE_SIZE     = 254;
