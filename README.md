@@ -1,5 +1,5 @@
 ---
-title: Monjoy HistoAI
+title: Monjoy.HistoAI
 emoji: 🔬
 colorFrom: blue
 colorTo: purple
@@ -11,7 +11,7 @@ license: mit
 
 <div align="center">
 
-# Monjoy HistoAI
+# Monjoy.HistoAI
 ### Browser-based whole-slide image review, annotation, metadata inspection, and patch generation for computational pathology
 
 [![Open Live Application](https://img.shields.io/badge/Open-Live%20Application-111827?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/spaces/monjoybme/Monjoy-HistoAI)
@@ -32,13 +32,13 @@ license: mit
 
 **Direct access:** https://huggingface.co/spaces/monjoybme/Monjoy-HistoAI
 
-Monjoy HistoAI is a web-deployed digital pathology workspace for reviewing whole-slide images (WSI), creating structured annotations, inspecting slide metadata, and generating image patches for downstream AI/ML pipelines. The application is designed for research, education, dataset curation, and workflow prototyping in computational pathology.
+Monjoy.HistoAI is a web-deployed digital pathology workspace for reviewing whole-slide images (WSI), creating structured annotations, inspecting slide metadata, and generating image patches for downstream AI/ML pipelines. The application is designed for research, education, dataset curation, and workflow prototyping in computational pathology.
 
 ---
 
 ## Product Overview
 
-Monjoy HistoAI brings together the core tasks typically spread across multiple tools:
+Monjoy.HistoAI brings together the core tasks typically spread across multiple tools:
 
 - **Whole-slide viewing** with deep zoom and responsive pan/zoom navigation
 - **Structured annotation** for ROI creation and review
@@ -62,7 +62,7 @@ The platform is implemented as a **single Node.js application** and is suitable 
 
 ## Core Capabilities
 
-| Capability Area | What Monjoy HistoAI Provides | Operational Value |
+| Capability Area | What Monjoy.HistoAI Provides | Operational Value |
 |---|---|---|
 | **WSI access** | Load local slides, browse folders, stream remote URLs, and access TCGA/GDC slides | Reduces friction when assembling pathology cohorts from multiple sources |
 | **Annotation workspace** | Polygon, rectangle, ellipse, freehand, point, select, and erase tools with editable classes and colour coding | Supports ROI delineation, region labeling, and structured review workflows |
@@ -99,7 +99,7 @@ The platform is implemented as a **single Node.js application** and is suitable 
 
 ## Annotation and Review Workflow
 
-Monjoy HistoAI is designed around a practical digital pathology workflow:
+Monjoy.HistoAI is designed around a practical digital pathology workflow:
 
 1. **Load a slide** from local storage, a folder, a remote URL, or TCGA/GDC
 2. **Review the image** with deep zoom, pan, and navigable slide lists
@@ -274,7 +274,7 @@ For persistent outputs in local Docker deployments, mount host directories for a
 - **Local deployments** can keep generated annotations and extracted patches on the local machine
 - **Remote or hosted deployments** should be reviewed in the context of the hosting platform's storage, security, and access configuration
 
-Monjoy HistoAI does **not** claim clinical, regulatory, or compliance validation by default. Deployment owners are responsible for the governance posture of their environment.
+Monjoy.HistoAI does **not** claim clinical, regulatory, or compliance validation by default. Deployment owners are responsible for the governance posture of their environment.
 
 ---
 
